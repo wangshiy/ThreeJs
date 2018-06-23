@@ -18,6 +18,7 @@
   "homepage": "https://github.com/wangshiy/ThreeJs#readme",
   "dependencies": {},
   "devDependencies": {
+    "imports-loader": "^0.8.0",
     "three": "^0.93.0",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.8",
