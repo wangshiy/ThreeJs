@@ -1,5 +1,7 @@
-var webpack = require('webpack')
-var path = require('path')
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry:{
     app:path.join(__dirname,'src','index.js')
@@ -25,7 +27,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[path][name].[ext]'
+              name: '[path][name].[ext]' //todo: how to hash the name ?
             }
           }
         ]
@@ -33,7 +35,18 @@ module.exports = {
     ]
   },
   plugins:[
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      hash: true,
+      path: path.join(__dirname,'dist'),
+      filename: 'index.html' //generate index.html in dist folder
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      path: path.join(__dirname,'dist'),
+      template: 'public/templates/404.html',
+      filename: '404.html' //generate 404.html in dist folder
+    })
   ],
   devServer: {
     inline:true, //HMR enable
