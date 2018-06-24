@@ -5,9 +5,12 @@
 // // import basic from './basic.js';
 // import texture from './texture.js';
 import React, { Component } from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './app';
 
-render(
-    <div>Hello React!</div>,
-    document.getElementById('app')
-);
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+  , document.getElementById('root'));

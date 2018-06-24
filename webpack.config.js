@@ -63,12 +63,14 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"), //设置webpack-dev-server的根路径
     port: 7000,
     host: '127.0.0.1',
-    historyApiFallback:{
-      rewrites:[{
-        from:/./,
-        to:'/404.html'
-      }]
-    }, //404的重定向页面
+    publicPath: '/',
+    historyApiFallback: true,
+    // historyApiFallback:{
+    //   rewrites:[{
+    //     from:/./,
+    //     to:'/404.html'
+    //   }]
+    // }, //404的重定向页面
     overlay: true, //将server端的报错显示在client端
     stats: "errors-only" //运行webpack-dev-server时只显示报错
   }
