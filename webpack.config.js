@@ -1,5 +1,5 @@
 var webpack = require('webpack')
-var path =require('path')
+var path = require('path')
 module.exports = {
   entry:{
     app:path.join(__dirname,'src','index.js')
@@ -18,6 +18,17 @@ module.exports = {
       {
         test: /three\/examples\/js/,
         use: 'imports-loader?THREE=three'
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
