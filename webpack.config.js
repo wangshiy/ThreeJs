@@ -7,7 +7,7 @@ module.exports = {
     app:path.join(__dirname,'src','index.js')
   },
   output:{
-    filename:'bundle.js',
+    filename:'[name]_[hash:8].js',
     path:path.join(__dirname,'dist')
   },
   resolve: {
@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /three\/examples\/js/,
         use: 'imports-loader?THREE=three'
-      },
+      }, // import three/examples js files loader
       {
         test: /\.(png|jpg|gif)$/,
         use: [
@@ -31,7 +31,14 @@ module.exports = {
             }
           }
         ]
-      }
+      }, // import pictures
+      {
+        test: /\.(js|jsx)$/,
+        use: {
+            loader: 'babel-loader',
+        },
+        exclude: /node_modules/
+      } // import react
     ]
   },
   plugins:[
@@ -39,6 +46,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: true,
       path: path.join(__dirname,'dist'),
+      template: 'public/templates/index.html',
       filename: 'index.html' //generate index.html in dist folder
     }),
     new HtmlWebpackPlugin({
