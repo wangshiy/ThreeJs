@@ -27,6 +27,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
+              limit: 25000,
               name: '[path][name].[ext]' //todo: how to hash the name ?
             }
           }

@@ -26,7 +26,7 @@ window.addEventListener( 'resize', function( )
 } );
 
 // CUBE
-var geometry = new THREE.CubeGeometry( 2, 2, 2 );
+var geometry = new THREE.CubeGeometry( 20, 20, 20 );
 var cubeMaterials =
 [
 	new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load( './public/img/1.png' ), side: THREE.DoubleSide } ), // Right side
@@ -37,6 +37,8 @@ var cubeMaterials =
 	new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load( './public/img/6.png' ), side: THREE.DoubleSide } ) // Back side
 ];
 
+console.log('work one', new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load( './public/img/1.png' ), side: THREE.DoubleSide } ));
+
 // Create a MeshFaceMaterial, which allows the cube to have different materials on each face
 var cubeMaterial = new THREE.MeshFaceMaterial( cubeMaterials );
 var cube = new THREE.Mesh( geometry, cubeMaterial );
@@ -44,9 +46,7 @@ scene.add( cube );
 
 camera.position.z = 3;
 
-console.log('gg', THREE.OrbitControls);
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
-console.log('controls', controls);
 
 // game logic
 var update = function( )
