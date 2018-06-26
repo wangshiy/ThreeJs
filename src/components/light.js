@@ -42,27 +42,27 @@ class Texture extends Component {
     scene.add(cube);
 
     // Floor
-		var floorGeometry = new THREE.CubeGeometry( 10, 1, 10 );
-		var floorMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Ground.jpg' ), side: THREE.DoubleSide } );
-		var floorCube = new THREE.Mesh( floorGeometry, floorMaterial );
+		const floorGeometry = new THREE.CubeGeometry( 10, 1, 10 );
+		const floorMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Ground.jpg' ), side: THREE.DoubleSide } );
+		const floorCube = new THREE.Mesh( floorGeometry, floorMaterial );
 		floorCube.position.y = -5;
 		scene.add( floorCube );
 		// Ceiling
-		var ceilingGeometry = new THREE.CubeGeometry( 10, 1, 10 );
-		var ceilingMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Ceiling.jpg' ), side: THREE.DoubleSide } );
-		var ceilingCube = new THREE.Mesh( ceilingGeometry, ceilingMaterial );
+		const ceilingGeometry = new THREE.CubeGeometry( 10, 1, 10 );
+		const ceilingMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Ceiling.jpg' ), side: THREE.DoubleSide } );
+		const ceilingCube = new THREE.Mesh( ceilingGeometry, ceilingMaterial );
 		ceilingCube.position.y = 5;
 		scene.add( ceilingCube );
 		// Left Wall
-		var leftWallGeometry = new THREE.CubeGeometry( 1, 10, 10 );
-		var leftWallMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Wall.jpg' ), side: THREE.DoubleSide } );
-		var leftWallCube = new THREE.Mesh( leftWallGeometry, leftWallMaterial );
+		const leftWallGeometry = new THREE.CubeGeometry( 1, 10, 10 );
+		const leftWallMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Wall.jpg' ), side: THREE.DoubleSide } );
+		const leftWallCube = new THREE.Mesh( leftWallGeometry, leftWallMaterial );
 		leftWallCube.position.x = -5;
 		scene.add( leftWallCube );
 		// Right Wall
-		var rightWallGeometry = new THREE.CubeGeometry( 1, 10, 10 );
-		var rightWallMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Wall.jpg' ), side: THREE.DoubleSide } );
-		var rightWallCube = new THREE.Mesh( rightWallGeometry, rightWallMaterial );
+		const rightWallGeometry = new THREE.CubeGeometry( 1, 10, 10 );
+		const rightWallMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Wall.jpg' ), side: THREE.DoubleSide } );
+		const rightWallCube = new THREE.Mesh( rightWallGeometry, rightWallMaterial );
 		rightWallCube.position.x = 5;
 		scene.add( rightWallCube );
 

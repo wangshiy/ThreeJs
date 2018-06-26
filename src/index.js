@@ -21,6 +21,7 @@ import img9 from '../public/img/9.png';
 import Ceiling from '../public/img/Ceiling.jpg';
 import Ground from '../public/img/Ground.jpg';
 import Wall from '../public/img/Wall.jpg';
+import skull from '../public/models/skull.json';
 
 ReactDOM.render(
   <BrowserRouter>
