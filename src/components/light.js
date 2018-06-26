@@ -38,11 +38,36 @@ class Texture extends Component {
 
     // Create a MeshFaceMaterial, which allows the cube to have different materials on each face
     const material = new THREE.MeshFaceMaterial( cubeMaterials );
-
     const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    // Floor
+		var floorGeometry = new THREE.CubeGeometry( 10, 1, 10 );
+		var floorMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Ground.jpg' ), side: THREE.DoubleSide } );
+		var floorCube = new THREE.Mesh( floorGeometry, floorMaterial );
+		floorCube.position.y = -5;
+		scene.add( floorCube );
+		// Ceiling
+		var ceilingGeometry = new THREE.CubeGeometry( 10, 1, 10 );
+		var ceilingMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Ceiling.jpg' ), side: THREE.DoubleSide } );
+		var ceilingCube = new THREE.Mesh( ceilingGeometry, ceilingMaterial );
+		ceilingCube.position.y = 5;
+		scene.add( ceilingCube );
+		// Left Wall
+		var leftWallGeometry = new THREE.CubeGeometry( 1, 10, 10 );
+		var leftWallMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Wall.jpg' ), side: THREE.DoubleSide } );
+		var leftWallCube = new THREE.Mesh( leftWallGeometry, leftWallMaterial );
+		leftWallCube.position.x = -5;
+		scene.add( leftWallCube );
+		// Right Wall
+		var rightWallGeometry = new THREE.CubeGeometry( 1, 10, 10 );
+		var rightWallMaterial = new THREE.MeshLambertMaterial( { map: new THREE.TextureLoader( ).load( './public/img/Wall.jpg' ), side: THREE.DoubleSide } );
+		var rightWallCube = new THREE.Mesh( rightWallGeometry, rightWallMaterial );
+		rightWallCube.position.x = 5;
+		scene.add( rightWallCube );
 
     const ambientLight = new THREE.AmbientLight( 0xFFFFFF, 5.0 );
-		scene.add(ambientLight);
+		// scene.add(ambientLight);
 		this.light1 = new THREE.PointLight( 0xff0040, 4, 50 );
 		scene.add( this.light1 );
 		this.light2 = new THREE.PointLight( 0x0040ff, 3, 50 );
@@ -54,10 +79,9 @@ class Texture extends Component {
 		scene.add( directionalLight );
 		const spotLight = new THREE.SpotLight( 0xFF45F6, 25 );
 		spotLight.position.set( 0, 3, 0 );
-		scene.add( spotLight );
+		// scene.add( spotLight );
 
-    camera.position.z = 4
-    scene.add(cube)
+    camera.position.z = 7
     renderer.setClearColor('#000000')
     renderer.setSize(width, height)
 

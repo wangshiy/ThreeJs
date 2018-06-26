@@ -18,6 +18,9 @@ import img6 from '../public/img/6.png';
 import img7 from '../public/img/7.png'; // todo: how to use import in child component then let webpack track the usage and build
 import img8 from '../public/img/8.png';
 import img9 from '../public/img/9.png';
+import Ceiling from '../public/img/Ceiling.jpg';
+import Ground from '../public/img/Ground.jpg';
+import Wall from '../public/img/Wall.jpg';
 
 ReactDOM.render(
   <BrowserRouter>
