@@ -5,6 +5,7 @@ import Basic from './components/basic';
 import Texture from './components/texture';
 import Light from './components/light';
 import Model from './components/model';
+import Skybox from './components/skybox';
 
 const Header = () => (
   <header>
@@ -15,6 +16,7 @@ const Header = () => (
         <li><Link to='/texture'>Texture</Link></li>
         <li><Link to='/light'>Light</Link></li>
         <li><Link to='/model'>Model</Link></li>
+        <li><Link to='/skybox'>Skybox</Link></li>
       </ul>
     </nav>
   </header>
@@ -28,6 +30,7 @@ const Main = () => (
       <Route exact path='/texture' component={Texture}/>
       <Route exact path='/light' component={Light}/>
       <Route exact path='/model' component={Model}/>
+      <Route exact path='/skybox' component={Skybox}/>
     </Switch>
   </main>
 )

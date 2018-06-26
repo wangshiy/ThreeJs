@@ -22,6 +22,12 @@ import Ceiling from '../public/img/Ceiling.jpg';
 import Ground from '../public/img/Ground.jpg';
 import Wall from '../public/img/Wall.jpg';
 import skull from '../public/models/skull.json';
+import front from '../public/img/front.png';
+import back from '../public/img/back.png';
+import up from '../public/img/up.png';
+import down from '../public/img/down.png';
+import right from '../public/img/right.png';
+import left from '../public/img/left.png';
 
 ReactDOM.render(
   <BrowserRouter>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
+import '@three-examples/controls/OrbitControls';
 
-class Basic extends Component {
+class Texture extends Component {
   constructor(props) {
     super(props)
 
@@ -23,13 +24,28 @@ class Basic extends Component {
     )
     const renderer = new THREE.WebGLRenderer({ antialias: true })
     // create the shape
-    const geometry = new THREE.CubeGeometry(1, 1, 1)
+    const geometry = new THREE.CubeGeometry(100, 100, 100)
     // create a material, colour or image texture
-    const material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true })
-    const cube = new THREE.Mesh(geometry, material)
+    const  cubeMaterials =
+    [
+    	new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load( './public/img/front.png' ), side: THREE.DoubleSide } ), // Right side
+    	new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load( './public/img/back.png' ), side: THREE.DoubleSide } ), // Left side
+    	new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load( './public/img/up.png' ), side: THREE.DoubleSide } ), // Top side
+    	new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load( './public/img/down.png' ), side: THREE.DoubleSide } ), // Bottom side
+    	new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load( './public/img/right.png' ), side: THREE.DoubleSide } ), // Front side
+    	new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load( './public/img/left.png' ), side: THREE.DoubleSide } ) // Back side
+    ];
 
-    camera.position.z = 4
+    // Create a MeshFaceMaterial, which allows the cube to have different materials on each face
+    const material = new THREE.MeshFaceMaterial( cubeMaterials );
+    const cube = new THREE.Mesh(geometry, material)
     scene.add(cube)
+
+    const ambientLight = new THREE.AmbientLight( 0xFFFFFF, 0.5 );
+    scene.add( ambientLight );
+
+    camera.position.z = 10
+    camera.target = new THREE.Vector3(1, 1, 0);
     renderer.setClearColor('#000000')
     renderer.setSize(width, height)
 
@@ -51,6 +67,7 @@ class Basic extends Component {
     //   this.camera.aspect = WIDTH / HEIGHT;
     //   this.camera.updateProjectionMatrix( );
     // });
+    const controls = new THREE.OrbitControls( this.camera, this.renderer.domElement ); // give controller
     this.start()
   }
 
@@ -70,9 +87,7 @@ class Basic extends Component {
   }
 
   animate() {
-    this.cube.rotation.x += 0.01
-    this.cube.rotation.y += 0.005
-
+    this.cube.rotation.y += 0.001
     this.renderScene()
     this.frameId = window.requestAnimationFrame(this.animate)
   }
@@ -91,4 +106,4 @@ class Basic extends Component {
   }
 }
 
-export default Basic;
+export default Texture;

@@ -24,7 +24,7 @@ class Texture extends Component {
     )
     const renderer = new THREE.WebGLRenderer({ antialias: true })
     // create the shape
-    const geometry = new THREE.BoxGeometry(1, 1, 1)
+    const geometry = new THREE.CubeGeometry(1, 1, 1)
     // create a material, colour or image texture
     const  cubeMaterials =
     [

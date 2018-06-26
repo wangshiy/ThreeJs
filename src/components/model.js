@@ -28,7 +28,7 @@ class Texture extends Component {
 		// load a resource
 		loader.load(
 			// resource URL
-			'../../public/models/skull.json',
+			'./public/models/skull.json',
 			// Function when resource is loaded
 			( object ) => {
 				scene.add( object );
