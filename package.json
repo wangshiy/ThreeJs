@@ -4,7 +4,7 @@
   "description": "A WebGL app using three.js",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server"
+    "start": "webpack;cp -r public/models dist/public;node_modules/.bin/webpack-dev-server"
   },
   "repository": {
     "type": "git",
